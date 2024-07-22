@@ -32,8 +32,8 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage})
 
 // Creating upload Endpoint for images
-app.use('./images',express.static('upload/images'))
-app.post("/upload",upload.single('product'),(req,res)=>{
+app.use('https://ecommerce-backend-oz1v.onrender.com/images',express.static('upload/images'))
+app.post("https://ecommerce-backend-oz1v.onrender.com/upload",upload.single('product'),(req,res)=>{
     res.json({
         success: 1,
         image_url: `http://localhost:${port}/images/${req.file.filename}`
@@ -77,7 +77,7 @@ const Product = mongoose.model("Product",{
     },
 })
 
-app.post('/addproduct', async(req,res)=>{
+app.post('https://ecommerce-backend-oz1v.onrender.com/addproduct', async(req,res)=>{
     let products = await Product.find({});
     let id;
     if(products.length>0){
@@ -107,7 +107,7 @@ app.post('/addproduct', async(req,res)=>{
 
 // Creating API for deleting products
 
-app.post('/removeproduct',async (req,res)=>{
+app.post('https://ecommerce-backend-oz1v.onrender.com/removeproduct',async (req,res)=>{
     await Product.findOneAndDelete({id:req.body.id});
     console.log("Removed");
     res.json({
@@ -118,7 +118,7 @@ app.post('/removeproduct',async (req,res)=>{
 
 // Creating API for getting all products
 
-app.get('/allproducts', async (req,res)=>{
+app.get('https://ecommerce-backend-oz1v.onrender.com/allproducts', async (req,res)=>{
     let products = await Product.find({});
     console.log("All products fetched");
     res.send(products);
@@ -149,7 +149,7 @@ const Users = mongoose.model("users", {
 
 // Creating Endpoint for User signup
 
-app.post('/signup', async (req,res)=>{
+app.post('https://ecommerce-backend-oz1v.onrender.com/signup', async (req,res)=>{
 
     let check = await Users.findOne({email:req.body.email});
     if (check) {
@@ -179,7 +179,7 @@ app.post('/signup', async (req,res)=>{
 
 //Creating Endpoint for login
 
-app.post('/login', async (req, res)=>{
+app.post('https://ecommerce-backend-oz1v.onrender.com/login', async (req, res)=>{
     let user = await Users.findOne({email:req.body.email});
     if (user){
         const passCompare = req.body.password === user.password;
@@ -202,7 +202,7 @@ app.post('/login', async (req, res)=>{
 })
 
 // Creating endpoint for newcollection
-app.get('/newcollections', async (req,res)=>{
+app.get('https://ecommerce-backend-oz1v.onrender.com/newcollections', async (req,res)=>{
     let products = await Product.find({});
     let newcollection = products.slice(1).slice(-8);
     res.send(newcollection);
@@ -210,7 +210,7 @@ app.get('/newcollections', async (req,res)=>{
 
 // Creating endpoint for popular in women
 
-app.get('/popularinwomen', async (req,res)=>{
+app.get('https://ecommerce-backend-oz1v.onrender.com/popularinwomen', async (req,res)=>{
     let products = await Product.find({category:"women"});
     let popular_in_women = products.slice(0,4);
     res.send(popular_in_women);
