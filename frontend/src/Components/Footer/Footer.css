@@ -64,7 +64,7 @@
 
 @media screen and (max-width: 800px) {
     .footer {
-        gap: 220px;
+        gap: 20px;
     }
 
     .footer-logo {
