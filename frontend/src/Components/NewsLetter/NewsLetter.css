@@ -84,9 +84,9 @@
     }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1120px) {
     .newsletter {
-        margin-bottom: 60px;
+        margin-top: 380px;
     }
 
     .newsletter h1 {
@@ -116,6 +116,7 @@
 
 @media screen and (max-width:800px) {
     .newsletter {
+        margin-top: 300px;
         margin-bottom: 30px;
         max-width: 800px;
     }
@@ -130,7 +131,7 @@
 
     .newsletter div {
         width: 400px;
-        4height: 50px;
+        height: 50px;
     }
 
     .newsletter div input {
@@ -151,6 +152,7 @@
         width: 100%;
         padding: 0;
         gap: 15px;
+        margin-top: 1000px;
     }
 
     .newsletter h1 {

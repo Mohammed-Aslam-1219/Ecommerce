@@ -99,7 +99,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .shopcategory-products {
         grid-template-columns: 1fr 1fr;
     }
